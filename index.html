@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orar Școlar</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: #f1f5f9;
+      color: #0f172a;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    .container {
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      padding: 32px;
+      max-width: 1050px;
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    .header-section {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .header-section h1 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+    }
+
+    .header-section p {
+      font-size: 0.95rem;
+      color: #64748b;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 2px solid #cbd5e1;
+    }
+
+    thead th {
+      background-color: #0f172a;
+      color: #ffffff;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 16px 12px;
+      text-align: center;
+      border-bottom: 4px solid #2563eb;
+      border-right: 1px solid #334155;
+    }
+
+    thead th:last-child {
+      border-right: none;
+    }
+
+    thead th.corner-header {
+      background-color: #020617;
+      width: 140px;
+      border-right: 4px solid #3b82f6;
+    }
+
+    tbody th.row-header {
+      background-color: #e2e8f0;
+      color: #1e293b;
+      font-size: 0.88rem;
+      font-weight: 700;
+      padding: 14px 12px;
+      text-align: center;
+      white-space: nowrap;
+      border-right: 4px solid #3b82f6;
+      border-bottom: 1px solid #cbd5e1;
+    }
+
+    tbody tr:last-child th.row-header {
+      border-bottom: none;
+    }
+
+    tbody td {
+      padding: 12px 10px;
+      text-align: center;
+      font-size: 0.92rem;
+      border-bottom: 1px solid #e2e8f0;
+      border-right: 1px solid #e2e8f0;
+      background-color: #ffffff;
+      transition: background-color 0.15s ease;
+    }
+
+    tbody td:last-child {
+      border-right: none;
+    }
+
+    tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    tbody tr:hover td {
+      background-color: #f8fafc;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 8px;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+
+    .cls-real {
+      color: #1d4ed8;
+      background-color: #eff6ff;
+      border: 1px solid #bfdbfe;
+    }
+
+    .cls-limbi {
+      color: #b91c1c;
+      background-color: #fef2f2;
+      border: 1px solid #fecaca;
+    }
+
+    .cls-socio {
+      color: #b45309;
+      background-color: #fffbeb;
+      border: 1px solid #fde68a;
+    }
+
+    .cls-vocational {
+      color: #047857;
+      background-color: #ecfdf5;
+      border: 1px solid #a7f3d0;
+    }
+
+    .cls-dirigentie {
+      color: #7e22ce;
+      background-color: #faf5ff;
+      border: 1px solid #e9d5ff;
+    }
+
+    .slot-gol {
+      color: #94a3b8;
+      font-weight: 500;
+      font-size: 1.1rem;
+    }
+
+    .legend-container {
+      margin-top: 28px;
+      padding-top: 20px;
+      border-top: 2px dashed #e2e8f0;
+    }
+
+    .legend-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #475569;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+
+    .legend-items {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.82rem;
+      color: #334155;
+      font-weight: 600;
+    }
+
+    .legend-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+
+    .dot-real { background-color: #1d4ed8; }
+    .dot-limbi { background-color: #b91c1c; }
+    .dot-socio { background-color: #b45309; }
+    .dot-vocational { background-color: #047857; }
+    .dot-dirigentie { background-color: #7e22ce; }
+
+    @media print {
+      body {
+        background: none;
+        padding: 0;
+      }
+      .container {
+        box-shadow: none;
+        padding: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="header-section">
+      <h1>Orar Săptămânal</h1>
+      <p>Organizare pe clase de materii și separare vizuală a intervalelor</p>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th class="corner-header">Interval</th>
+          <th>Luni</th>
+          <th>Marți</th>
+          <th>Miercuri</th>
+          <th>Joi</th>
+          <th>Vineri</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row" class="row-header">12:00 – 12:50</th>
+          <td><span class="badge cls-real">Chimie</span></td>
+          <td><span class="badge cls-real">Mate</span></td>
+          <td><span class="slot-gol">—</span></td>
+          <td><span class="badge cls-limbi">Limba engleză</span></td>
+          <td><span class="badge cls-real">Chimie</span></td>
+        </tr>
+        <tr>
+          <th scope="row" class="row-header">13:00 – 13:50</th>
+          <td><span class="badge cls-vocational">Educație muzicală</span></td>
+          <td><span class="badge cls-socio">Ed. civică</span></td>
+          <td><span class="badge cls-real">Biologie</span></td>
+          <td><span class="badge cls-socio">Geografie</span></td>
+          <td><span class="badge cls-limbi">Limba română</span></td>
+        </tr>
+        <tr>
+          <th scope="row" class="row-header">14:00 – 14:50</th>
+          <td><span class="badge cls-limbi">Lb. franceză</span></td>
+          <td><span class="badge cls-limbi">Lb. română</span></td>
+          <td><span class="badge cls-limbi">Limba română</span></td>
+          <td><span class="badge cls-real">Mate</span></td>
+          <td><span class="badge cls-real">Biologie</span></td>
+        </tr>
+        <tr>
+          <th scope="row" class="row-header">15:00 – 15:50</th>
+          <td><span class="badge cls-vocational">Ed. tehnologică</span></td>
+          <td><span class="badge cls-limbi">Lb. română</span></td>
+          <td><span class="badge cls-limbi">Limba engleză</span></td>
+          <td><span class="badge cls-vocational">Educație fizică</span></td>
+          <td><span class="badge cls-real">TIC</span></td>
+        </tr>
+        <tr>
+          <th scope="row" class="row-header">16:00 – 16:50</th>
+          <td><span class="badge cls-real">Mate</span></td>
+          <td><span class="badge cls-limbi">Limba engleză</span></td>
+          <td><span class="badge cls-real">Mate</span></td>
+          <td><span class="badge cls-limbi">Limba franceză</span></td>
+          <td><span class="badge cls-socio">Istorie</span></td>
+        </tr>
+        <tr>
+          <th scope="row" class="row-header">17:00 – 17:50</th>
+          <td><span class="badge cls-limbi">Limba engleză</span></td>
+          <td><span class="badge cls-real">Fizică</span></td>
+          <td><span class="badge cls-real">Fizică</span></td>
+          <td><span class="badge cls-vocational">Ed. plastică</span></td>
+          <td><span class="badge cls-dirigentie">Dirigenție</span></td>
+        </tr>
+        <tr>
+          <th scope="row" class="row-header">18:00 – 18:50</th>
+          <td><span class="badge cls-vocational">Ed. fizică</span></td>
+          <td><span class="badge cls-limbi">Latină</span></td>
+          <td><span class="badge cls-socio">Religie</span></td>
+          <td><span class="slot-gol">—</span></td>
+          <td><span class="slot-gol">—</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="legend-container">
+      <div class="legend-title">Legendă Clase de Materii</div>
+      <div class="legend-items">
+        <div class="legend-item"><span class="legend-dot dot-real"></span><span>Științe Reale (Mate, Fizică, Chimie, Biologie, TIC)</span></div>
+        <div class="legend-item"><span class="legend-dot dot-limbi"></span><span>Limbi &amp; Comunicare (Română, Engleză, Franceză, Latină)</span></div>
+        <div class="legend-item"><span class="legend-dot dot-socio"></span><span>Științe Socio-Umane (Istorie, Geografie, Ed. civică, Religie)</span></div>
+        <div class="legend-item"><span class="legend-dot dot-vocational"></span><span>Arte &amp; Abilități (Muzică, Plastică, Sport, Tehnologie)</span></div>
+        <div class="legend-item"><span class="legend-dot dot-dirigentie"></span><span>Consiliere (Dirigenție)</span></div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
