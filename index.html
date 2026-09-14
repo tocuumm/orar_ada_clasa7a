@@ -88,7 +88,8 @@
     white-space:nowrap;
     font-size:12.5px;
   }
-  td.gol{ color:#d4d4d8; }
+  .gol{ color:#c9cad0; }
+
   .materie{
     display:inline-block;
     padding:3px 9px;
@@ -102,6 +103,41 @@
   .m-uman{ background:var(--c-uman); color:var(--c-uman-ink); }
   .m-arte{ background:var(--c-arte); color:var(--c-arte-ink); }
   .m-alt{ background:var(--c-alt); color:var(--c-alt-ink); }
+
+  /* ---- MOBIL: carton pe ZI ---- */
+  .mobile{ display:none; }
+  .day-card{
+    border:1px solid var(--border);
+    border-radius:10px;
+    overflow:hidden;
+    margin-bottom:12px;
+    background:var(--card);
+  }
+  .day-head{
+    background:var(--head-bg);
+    color:var(--head-ink);
+    font-weight:700;
+    font-size:14px;
+    padding:10px 14px;
+    border-bottom:1px solid var(--border);
+    letter-spacing:0.3px;
+  }
+  .slot{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:9px 14px;
+    border-top:1px solid var(--border);
+    font-size:13.5px;
+  }
+  .slot:first-of-type{ border-top:none; }
+  .slot:nth-child(odd){ background:var(--row-alt); }
+  .slot .h{
+    flex:0 0 96px;
+    color:var(--muted);
+    font-weight:600;
+    font-size:12px;
+  }
 
   .legend{
     display:flex;
@@ -138,28 +174,11 @@
     color:#b7b8c0;
   }
   @media (max-width:700px){
-    table, thead, tbody, th, td, tr { display:block; }
-    thead tr{ display:none; }
-    tbody tr{
-      margin-bottom:10px;
-      border:1px solid var(--border);
-      border-radius:8px;
-      overflow:hidden;
-    }
-    tbody td{
-      display:flex;
-      justify-content:space-between;
-      padding:9px 12px;
-      border:none;
-      border-bottom:1px solid var(--border);
-    }
-    tbody td:last-child{ border-bottom:none; }
-    tbody td::before{
-      content: attr(data-label);
-      font-weight:600;
-      color:var(--muted);
-      margin-right:10px;
-    }
+    body{ padding:16px 10px; }
+    .container{ padding:22px 14px 16px; }
+    table{ display:none; }
+    .mobile{ display:block; }
+    .legend{ justify-content:flex-start; }
   }
 </style>
 </head>
@@ -167,6 +186,8 @@
   <div class="container">
     <h1>Orar clasa 7A</h1>
     <p class="subtitle">Luni – Vineri</p>
+
+    <!-- DESKTOP -->
     <table>
       <thead>
         <tr>
@@ -180,63 +201,117 @@
       </thead>
       <tbody>
         <tr>
-          <td class="ora" data-label="Interval">12:00–12:50</td>
-          <td data-label="Luni"><span class="materie m-real">Chimie</span></td>
-          <td data-label="Marți"><span class="materie m-real">Mate</span></td>
-          <td data-label="Miercuri" class="gol">—</td>
-          <td data-label="Joi"><span class="materie m-lang">Limba engleză</span></td>
-          <td data-label="Vineri"><span class="materie m-real">Chimie</span></td>
+          <td class="ora">12:00–12:50</td>
+          <td><span class="materie m-real">Chimie</span></td>
+          <td><span class="materie m-real">Mate</span></td>
+          <td class="gol">—</td>
+          <td><span class="materie m-lang">Limba engleză</span></td>
+          <td><span class="materie m-real">Chimie</span></td>
         </tr>
         <tr>
-          <td class="ora" data-label="Interval">13:00–13:50</td>
-          <td data-label="Luni"><span class="materie m-arte">Educație muzicală</span></td>
-          <td data-label="Marți"><span class="materie m-uman">Ed. civică</span></td>
-          <td data-label="Miercuri"><span class="materie m-real">Biologie</span></td>
-          <td data-label="Joi"><span class="materie m-uman">Geografie</span></td>
-          <td data-label="Vineri"><span class="materie m-uman">Limba română</span></td>
+          <td class="ora">13:00–13:50</td>
+          <td><span class="materie m-arte">Educație muzicală</span></td>
+          <td><span class="materie m-uman">Ed. civică</span></td>
+          <td><span class="materie m-real">Biologie</span></td>
+          <td><span class="materie m-uman">Geografie</span></td>
+          <td><span class="materie m-uman">Limba română</span></td>
         </tr>
         <tr>
-          <td class="ora" data-label="Interval">14:00–14:50</td>
-          <td data-label="Luni"><span class="materie m-lang">Lb. franceză</span></td>
-          <td data-label="Marți"><span class="materie m-uman">Lb. română</span></td>
-          <td data-label="Miercuri"><span class="materie m-uman">Limba română</span></td>
-          <td data-label="Joi"><span class="materie m-real">Mate</span></td>
-          <td data-label="Vineri"><span class="materie m-real">Biologie</span></td>
+          <td class="ora">14:00–14:50</td>
+          <td><span class="materie m-lang">Lb. franceză</span></td>
+          <td><span class="materie m-uman">Lb. română</span></td>
+          <td><span class="materie m-uman">Limba română</span></td>
+          <td><span class="materie m-real">Mate</span></td>
+          <td><span class="materie m-real">Biologie</span></td>
         </tr>
         <tr>
-          <td class="ora" data-label="Interval">15:00–15:50</td>
-          <td data-label="Luni"><span class="materie m-alt">Ed. tehnologică</span></td>
-          <td data-label="Marți"><span class="materie m-uman">Lb. română</span></td>
-          <td data-label="Miercuri"><span class="materie m-lang">Limba engleză</span></td>
-          <td data-label="Joi"><span class="materie m-arte">Educație fizică</span></td>
-          <td data-label="Vineri"><span class="materie m-alt">TIC</span></td>
+          <td class="ora">15:00–15:50</td>
+          <td><span class="materie m-alt">Ed. tehnologică</span></td>
+          <td><span class="materie m-uman">Lb. română</span></td>
+          <td><span class="materie m-lang">Limba engleză</span></td>
+          <td><span class="materie m-arte">Educație fizică</span></td>
+          <td><span class="materie m-alt">TIC</span></td>
         </tr>
         <tr>
-          <td class="ora" data-label="Interval">16:00–16:50</td>
-          <td data-label="Luni"><span class="materie m-real">Mate</span></td>
-          <td data-label="Marți"><span class="materie m-lang">Limba engleză</span></td>
-          <td data-label="Miercuri"><span class="materie m-real">Mate</span></td>
-          <td data-label="Joi"><span class="materie m-lang">Limba franceză</span></td>
-          <td data-label="Vineri"><span class="materie m-uman">Istorie</span></td>
+          <td class="ora">16:00–16:50</td>
+          <td><span class="materie m-real">Mate</span></td>
+          <td><span class="materie m-lang">Limba engleză</span></td>
+          <td><span class="materie m-real">Mate</span></td>
+          <td><span class="materie m-lang">Limba franceză</span></td>
+          <td><span class="materie m-uman">Istorie</span></td>
         </tr>
         <tr>
-          <td class="ora" data-label="Interval">17:00–17:50</td>
-          <td data-label="Luni"><span class="materie m-lang">Limba engleză</span></td>
-          <td data-label="Marți"><span class="materie m-real">Fizică</span></td>
-          <td data-label="Miercuri"><span class="materie m-real">Fizică</span></td>
-          <td data-label="Joi"><span class="materie m-arte">Ed. plastică</span></td>
-          <td data-label="Vineri"><span class="materie m-alt">Dirigenție</span></td>
+          <td class="ora">17:00–17:50</td>
+          <td><span class="materie m-lang">Limba engleză</span></td>
+          <td><span class="materie m-real">Fizică</span></td>
+          <td><span class="materie m-real">Fizică</span></td>
+          <td><span class="materie m-arte">Ed. plastică</span></td>
+          <td><span class="materie m-alt">Dirigenție</span></td>
         </tr>
         <tr>
-          <td class="ora" data-label="Interval">18:00–18:50</td>
-          <td data-label="Luni"><span class="materie m-arte">Ed. fizică</span></td>
-          <td data-label="Marți"><span class="materie m-lang">Latină</span></td>
-          <td data-label="Miercuri"><span class="materie m-alt">Religie</span></td>
-          <td data-label="Joi" class="gol">—</td>
-          <td data-label="Vineri" class="gol">—</td>
+          <td class="ora">18:00–18:50</td>
+          <td><span class="materie m-arte">Ed. fizică</span></td>
+          <td><span class="materie m-lang">Latină</span></td>
+          <td><span class="materie m-alt">Religie</span></td>
+          <td class="gol">—</td>
+          <td class="gol">—</td>
         </tr>
       </tbody>
     </table>
+
+    <!-- MOBIL: carton pe zi -->
+    <div class="mobile">
+      <div class="day-card">
+        <div class="day-head">Luni</div>
+        <div class="slot"><span class="h">12:00–12:50</span><span class="materie m-real">Chimie</span></div>
+        <div class="slot"><span class="h">13:00–13:50</span><span class="materie m-arte">Educație muzicală</span></div>
+        <div class="slot"><span class="h">14:00–14:50</span><span class="materie m-lang">Lb. franceză</span></div>
+        <div class="slot"><span class="h">15:00–15:50</span><span class="materie m-alt">Ed. tehnologică</span></div>
+        <div class="slot"><span class="h">16:00–16:50</span><span class="materie m-real">Mate</span></div>
+        <div class="slot"><span class="h">17:00–17:50</span><span class="materie m-lang">Limba engleză</span></div>
+        <div class="slot"><span class="h">18:00–18:50</span><span class="materie m-arte">Ed. fizică</span></div>
+      </div>
+      <div class="day-card">
+        <div class="day-head">Marți</div>
+        <div class="slot"><span class="h">12:00–12:50</span><span class="materie m-real">Mate</span></div>
+        <div class="slot"><span class="h">13:00–13:50</span><span class="materie m-uman">Ed. civică</span></div>
+        <div class="slot"><span class="h">14:00–14:50</span><span class="materie m-uman">Lb. română</span></div>
+        <div class="slot"><span class="h">15:00–15:50</span><span class="materie m-uman">Lb. română</span></div>
+        <div class="slot"><span class="h">16:00–16:50</span><span class="materie m-lang">Limba engleză</span></div>
+        <div class="slot"><span class="h">17:00–17:50</span><span class="materie m-real">Fizică</span></div>
+        <div class="slot"><span class="h">18:00–18:50</span><span class="materie m-lang">Latină</span></div>
+      </div>
+      <div class="day-card">
+        <div class="day-head">Miercuri</div>
+        <div class="slot"><span class="h">12:00–12:50</span><span class="gol">—</span></div>
+        <div class="slot"><span class="h">13:00–13:50</span><span class="materie m-real">Biologie</span></div>
+        <div class="slot"><span class="h">14:00–14:50</span><span class="materie m-uman">Limba română</span></div>
+        <div class="slot"><span class="h">15:00–15:50</span><span class="materie m-lang">Limba engleză</span></div>
+        <div class="slot"><span class="h">16:00–16:50</span><span class="materie m-real">Mate</span></div>
+        <div class="slot"><span class="h">17:00–17:50</span><span class="materie m-real">Fizică</span></div>
+        <div class="slot"><span class="h">18:00–18:50</span><span class="materie m-alt">Religie</span></div>
+      </div>
+      <div class="day-card">
+        <div class="day-head">Joi</div>
+        <div class="slot"><span class="h">12:00–12:50</span><span class="materie m-lang">Limba engleză</span></div>
+        <div class="slot"><span class="h">13:00–13:50</span><span class="materie m-uman">Geografie</span></div>
+        <div class="slot"><span class="h">14:00–14:50</span><span class="materie m-real">Mate</span></div>
+        <div class="slot"><span class="h">15:00–15:50</span><span class="materie m-arte">Educație fizică</span></div>
+        <div class="slot"><span class="h">16:00–16:50</span><span class="materie m-lang">Limba franceză</span></div>
+        <div class="slot"><span class="h">17:00–17:50</span><span class="materie m-arte">Ed. plastică</span></div>
+        <div class="slot"><span class="h">18:00–18:50</span><span class="gol">—</span></div>
+      </div>
+      <div class="day-card">
+        <div class="day-head">Vineri</div>
+        <div class="slot"><span class="h">12:00–12:50</span><span class="materie m-real">Chimie</span></div>
+        <div class="slot"><span class="h">13:00–13:50</span><span class="materie m-uman">Limba română</span></div>
+        <div class="slot"><span class="h">14:00–14:50</span><span class="materie m-real">Biologie</span></div>
+        <div class="slot"><span class="h">15:00–15:50</span><span class="materie m-alt">TIC</span></div>
+        <div class="slot"><span class="h">16:00–16:50</span><span class="materie m-uman">Istorie</span></div>
+        <div class="slot"><span class="h">17:00–17:50</span><span class="materie m-alt">Dirigenție</span></div>
+        <div class="slot"><span class="h">18:00–18:50</span><span class="gol">—</span></div>
+      </div>
+    </div>
 
     <div class="legend">
       <span class="legend-item"><span class="dot m-lang"></span>Limbi străine</span>
